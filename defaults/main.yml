@@ -4,16 +4,16 @@
 # Repository configs, must be one of the values in meta/main.yml
 #
 
-os_name: "{{ ansible_os_family }}"
-os_version: "{{ ansible_lsb.major_release }}"
-os_codename: "{{ ansible_lsb.codename }}"
+__os_name: "{{ ansible_os_family }}"
+__os_version: "{{ ansible_lsb.major_release }}"
+__os_codename: "{{ ansible_lsb.codename }}"
 
 #
 # New Relic Infrastructure agent configs
 #
 
 # New Relic license key
-license_key: ""
+__license_key: ""
 
 # Agent package state
 # Values:

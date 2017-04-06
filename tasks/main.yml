@@ -1,5 +1,15 @@
 ---
-- set_fact: os_name={{ ansible_os_family }}
+- set_fact: os_name=__os_name
+  when: os_name is undefined
+
+- set_fact: os_version=__os_version
+  when: os_version is undefined
+
+- set_fact: os_codename=__os_codename
+  when: os_codename is undefined
+
+- set_fact: license_key=__license_key
+  when: license_key is undefined
 
 # Install and configure agent
 - include: agent.yml
