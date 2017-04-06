@@ -40,17 +40,6 @@
     state: present
   when: os_name == 'Debian'
 
-- name: setup agent repo reference for redhat
-  yum_repository:
-    baseurl: "https://download.newrelic.com/infrastructure_agent/linux/yum/el/{{ os_version }}/x86_64"
-    gpgcheck: yes
-    gpgkey: https://download.newrelic.com/infrastructure_agent/gpg/newrelic-infra.gpg
-    name: 'New-Relic-Infrastructure'
-    repo_gpgcheck: yes
-    state: present
-    description: New Relic Infrastructure
-  when: os_name == 'RedHat'
-
 - name: install agent
   yum:
     name: "newrelic-infra{{ agent_version }}"
