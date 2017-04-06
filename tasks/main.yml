@@ -1,4 +1,7 @@
 ---
+
+- debug: msg=OS Codename {{ os_codename }}
+
 - set_fact: os_name=__os_name
   when: os_name is undefined
 
