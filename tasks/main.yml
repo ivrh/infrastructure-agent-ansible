@@ -1,4 +1,5 @@
 ---
+- set_fact: os_name={{ ansible_os_family }}
 
 # Install and configure agent
 - include: agent.yml
