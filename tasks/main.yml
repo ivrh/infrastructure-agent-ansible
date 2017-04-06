@@ -26,7 +26,7 @@
   apt_key:
     url: https://download.newrelic.com/infrastructure_agent/gpg/newrelic-infra.gpg
     state: present
-  when: os_name == 'Debian'
+  when: os_name|lower == 'debian'
 
 - name: setup agent repo keys
   rpm_key:
@@ -38,7 +38,7 @@
   apt_repository:
     repo: "deb https://download.newrelic.com/infrastructure_agent/linux/apt {{ os_codename }} main"
     state: present
-  when: os_name == 'Debian'
+  when: os_name|lower == 'debian'
 
 - name: install agent
   yum:
@@ -51,7 +51,7 @@
     name: "newrelic-infra{{ agent_version }}"
     state: "{{ agent_state }}"
     update_cache: yes
-  when: os_name == 'Debian'
+  when: os_name|lower == 'debian'
 
 - name: setup agent config
   template: src=newrelic-infra.yml.j2 dest=/etc/newrelic-infra.yml
